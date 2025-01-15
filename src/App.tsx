@@ -24,17 +24,24 @@ function App() {
     if(calculo <= 0.7) {
       setInfo({
         title: "Compensa usar ácool",
-        gasolina: gasolinaInput,
-        alcool: alcoolInput
+        gasolina: formatarMoeda(gasolinaInput),
+        alcool: formatarMoeda(alcoolInput)
       });
     } else {
       setInfo({
         title: "Compensa usar gasolina",
-        gasolina: gasolinaInput,
-        alcool: alcoolInput
+        gasolina: formatarMoeda(gasolinaInput),
+        alcool: formatarMoeda(alcoolInput)
       });
     }
-    
+  }
+
+  function formatarMoeda(valor: number) {
+    const valorFormatado = valor.toLocaleString("pt-br", {
+      style: 'currency',
+      currency: 'BRL'
+    })
+    return valorFormatado;
   }
 
   return (
