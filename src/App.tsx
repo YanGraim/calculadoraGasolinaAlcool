@@ -55,6 +55,12 @@ function App() {
 
           <input className='button' type="submit" value="Calcular"/>
         </form>
+
+        <section className='result'>
+          <h2 className='result-title'>Compensa usar álcool</h2>
+          <span>Álcool R$ 4.30</span>
+          <span>Gasolina R$ 6.30</span>
+        </section>
       </main>
     </div>
   )
