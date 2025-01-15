@@ -70,11 +70,13 @@ function App() {
           <input className='button' type="submit" value="Calcular"/>
         </form>
 
-        <section className='result'>
+        {info && Object.keys(info).length > 0 && (
+          <section className='result'>
           <h2 className='result-title'>{info?.title}</h2>
           <span>Álcool {info?.alcool}</span>
           <span>Gasolina {info?.gasolina}</span>
         </section>
+        )}
       </main>
     </div>
   )
