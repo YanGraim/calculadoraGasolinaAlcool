@@ -6,19 +6,33 @@ import './App.css'
   E se o resultado for menor que 0.7 compensa usar alcool
 */
 
+interface InfoProps {
+  title: string;
+  gasolina: string | number;
+  alcool: string | number
+}
 
 function App() {
 
   const [gasolinaInput, setGasolinaInput] = useState(0);
   const [alcoolInput, setAlcoolInput] = useState(0);
+  const [info, setInfo] = useState<InfoProps>();
 
   function calcular(event: FormEvent) {
     event.preventDefault();
     const calculo = (alcoolInput / gasolinaInput)
     if(calculo <= 0.7) {
-      alert("Compensa usar alcool")
+      setInfo({
+        title: "Compensa usar ácool",
+        gasolina: gasolinaInput,
+        alcool: alcoolInput
+      });
     } else {
-      alert("compensar usar gasolina")
+      setInfo({
+        title: "Compensa usar gasolina",
+        gasolina: gasolinaInput,
+        alcool: alcoolInput
+      });
     }
     
   }
@@ -57,9 +71,9 @@ function App() {
         </form>
 
         <section className='result'>
-          <h2 className='result-title'>Compensa usar álcool</h2>
-          <span>Álcool R$ 4.30</span>
-          <span>Gasolina R$ 6.30</span>
+          <h2 className='result-title'>{info?.title}</h2>
+          <span>Álcool {info?.alcool}</span>
+          <span>Gasolina {info?.gasolina}</span>
         </section>
       </main>
     </div>
